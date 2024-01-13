@@ -96,3 +96,5 @@ Flash Attention 加速训练、DeepSpeed ZeRO优化节省显存。
 
 4.动手实战
 
+代码参考链接：https://github.com/InternLM/tutorial/tree/main/xtuner
+视频学习资料：https://www.bilibili.com/video/BV1yK4y1B75J/?spm_id_from=333.788
