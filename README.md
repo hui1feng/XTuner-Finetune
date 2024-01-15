@@ -2,10 +2,10 @@
 ## 1.Finetune简介
 ![image](https://github.com/hui1feng/XTuner-Finetune/assets/126125104/5d801ae6-9a87-4ae3-9619-4bb8a187e55f)
 
-大语言模型在海量文本内容上，基于无监督和半监督进行训练的。
-在具体场景中表现不尽如人意故需要微调。
-微调模式：增量预训练和指令微调。
-增量预训练：给某些投喂一些某研究领域的新知识。
+大语言模型在海量文本内容上，基于无监督和半监督进行训练的。\
+在具体场景中表现不尽如人意故需要微调。\
+微调模式：增量预训练和指令微调。\
+增量预训练：给某些投喂一些某研究领域的新知识。\
 指令跟随：预训练模型仅仅简单拟合训练集中的分布，为使模型更加服从指令，需要进行指令微调，得到instructed LLM。
 
 ![image](https://github.com/hui1feng/XTuner-Finetune/assets/126125104/9f854615-6890-4c57-83b2-c77f58273f43)
@@ -14,7 +14,7 @@
 
 ![image](https://github.com/hui1feng/XTuner-Finetune/assets/126125104/f0b1011d-b0fa-4190-af72-9e395dad6317)
 
-首先对训练数据进行角色指定：问题给User，答案给指定角色，完成对话模板构建。
+首先对训练数据进行角色指定：问题给User，答案给指定角色，完成对话模板构建。\
 开源模型使用的对话模板不同
 
 ![image](https://github.com/hui1feng/XTuner-Finetune/assets/126125104/a73611b7-dd88-44e5-bdc3-d1c8bb158327)
@@ -34,15 +34,15 @@
 ![image](https://github.com/hui1feng/XTuner-Finetune/assets/126125104/302b9fa6-6590-4f82-a0ef-8f1577027c42)
 
 
-LoRA微调不需要太大显存开销，旁路分支模型Adapter文件也就是LoRA模型文件。
-QLoRA是LoRA的改进
+LoRA微调不需要太大显存开销，旁路分支模型Adapter文件也就是LoRA模型文件。\
+QLoRA是LoRA的改进\
 全参数微调、QLoRA、LoRA比较
 
 ![imagee](https://github.com/hui1feng/XTuner-Finetune/assets/126125104/61dbe0a8-e3bd-4276-a37f-2a39234410a1)
 
 
-全参数微调:模型和优化器全部加载到显存
-LoRA:模型和LoRA部分的参数优化器加载到显存
+全参数微调:模型和优化器全部加载到显存\
+LoRA:模型和LoRA部分的参数优化器加载到显存\
 QLoRA:4-bit方式简单加载模型，QLoRA部分的参数优化器可以在GPU和CPU之间调度，不怕显存爆。
 ##2.XTuner
 
@@ -88,7 +88,7 @@ QLoRA:4-bit方式简单加载模型，QLoRA部分的参数优化器可以在GPU�
 ![image7](https://github.com/hui1feng/XTuner-Finetune/assets/126125104/935dcd6a-9885-40a2-9b69-b90444d40f96)
 
 
-Flash Attention 加速训练、DeepSpeed ZeRO优化节省显存。
+Flash Attention 加速训练、DeepSpeed ZeRO优化节省显存\
 优化前后显存占用情况
 
 ![image8](https://github.com/hui1feng/XTuner-Finetune/assets/126125104/296116d8-7c30-46c9-899c-92e383bd0d3e)
@@ -238,7 +238,7 @@ python ./cli_demo.py
   python xlsx2jsonl.py
   ```
 * 划分训练集和测试集
-   ```python
+```python
   my .jsonL file looks like:
 [{
     "conversation":[
@@ -262,7 +262,7 @@ Step1, read the .jsonL file.
 Step2, count the amount of the "conversation" elements.
 Step3, randomly split all "conversation" elements by 7:3. Targeted structure is same as the input.
 Step4, save the 7/10 part as train.jsonl. save the 3/10 part as test.jsonl
-  ```
+```
 #### 4.4.2 开始自定义微调
 ```python
 mkdir ~/ft-medqa && cd ~/ft-medqa
@@ -337,7 +337,7 @@ vim ./internlm_7b_qlora_msagent_react_e3_gpu8_copy.py
 - pretrained_model_name_or_path = 'internlm/internlm-chat-7b'
 + pretrained_model_name_or_path = './internlm-chat-7b'
 ```
-由于 msagent 的训练非常费时，大家如果想尽快把这个教程跟完，可以直接从 modelScope 拉取咱们已经微调好了的 Adapter。如下演示：
+由于 msagent 的训练非常费时，大家如果想尽快把这个教程跟完，可以直接从 modelScope 拉取咱们已经微调好了的 Adapter。如下演示：\
 开始 chat 之前，还要加个 serper 的环境变量：去 serper.dev 免费注册一个账号，生成自己的 api key。
 ```python
 #下载Adapter
